@@ -8,7 +8,7 @@ const { wait } = require('./wait')
  */
 async function run() {
   try {
-    const result = await exec.exec('terraform fmt -check')
+    const result = await exec.exec('terraform fmt -check',[],{ignoreReturnCode:true})
     if (result === 0) {
       console.log('Terraform fmt check passed.')
     } else {
