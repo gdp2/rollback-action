@@ -8,11 +8,11 @@ const { wait } = require('./wait')
  */
 async function run() {
   try {
-    const result =await exec.exec('terraform fmt -check')
-    if (result == 0) {
-      console.log('Terraform fmt check passed.');
+    const result = await exec.exec('terraform fmt -check')
+    if (result === 0) {
+      console.log('Terraform fmt check passed.')
     } else {
-      console.error('Terraform fmt check failed.');
+      console.error('Terraform fmt check failed.')
     }
     core.setOutput('time', result)
   } catch (error) {

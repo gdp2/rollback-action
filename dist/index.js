@@ -3966,8 +3966,13 @@ const { wait } = __nccwpck_require__(312)
  */
 async function run() {
   try {
-    exec.exec('terraform fmt -check')
-    core.setOutput('time', new Date().toTimeString())
+    const result = await exec.exec('terraform fmt -check')
+    if (result === 0) {
+      console.log('Terraform fmt check passed.')
+    } else {
+      console.error('Terraform fmt check failed.')
+    }
+    core.setOutput('time', result)
   } catch (error) {
     // Fail the workflow run if an error occurs
     core.setFailed(error.message)
