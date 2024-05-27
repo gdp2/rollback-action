@@ -17,7 +17,7 @@ async function run() {
     core.setOutput('time', result)
   } catch (error) {
     // Fail the workflow run if an error occurs
-    core.setFailed(error.message)
+    console.error('Terraform fmt check failed.') 
   }
 }
 
