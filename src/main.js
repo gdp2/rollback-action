@@ -12,12 +12,12 @@ async function run() {
     if (result === 0) {
       console.log('Terraform fmt check passed.')
     } else {
-      console.error('Terraform fmt check failed.')
+      console.log('Terraform fmt check failed.')
     }
     core.setOutput('time', result)
   } catch (error) {
     // Fail the workflow run if an error occurs
-    console.error('Terraform fmt check failed.') 
+    console.log('Terraform fmt check failed.') 
   }
 }
 
