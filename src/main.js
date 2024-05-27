@@ -10,14 +10,14 @@ async function run() {
   try {
     const result = await exec.exec('terraform fmt -check',[],{ignoreReturnCode:true})
     if (result === 0) {
-      console.log('Terraform fmt check passed.')
+      core.debug('Terraform fmt check passed.')
     } else {
-      console.log('Terraform fmt check failed.')
+      core.debug('Terraform fmt check failed.')
     }
     core.setOutput('time', result)
   } catch (error) {
     // Fail the workflow run if an error occurs
-    console.log('Terraform fmt check failed.') 
+    core.debug('Terraform fmt check failed.') 
   }
 }
 
